@@ -2,33 +2,29 @@
 const cursor = document.getElementById('cursor');
 const ring   = document.getElementById('cursor-ring');
 
-let mx = 0, my = 0;
-let rx = 0, ry = 0;
-
 document.addEventListener('mousemove', e => {
-  mx = e.clientX;
-  my = e.clientY;
-  cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
+  const x = e.clientX;
+  const y = e.clientY;
+  cursor.style.transform = `translate(${x - 3}px, ${y - 3}px)`;
+  ring.style.transform   = `translate(${x - 14}px, ${y - 14}px)`;
 });
-
-function animateRing() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
-  requestAnimationFrame(animateRing);
-}
-animateRing();
 
 document.querySelectorAll('a, button, .skill-pill, .project-card').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    ring.style.width       = '56px';
-    ring.style.height      = '56px';
-    ring.style.borderColor = 'rgba(201,169,110,0.7)';
+    cursor.style.width      = '8px';
+    cursor.style.height     = '8px';
+    cursor.style.background = '#f0e0b0';
+    ring.style.width        = '40px';
+    ring.style.height       = '40px';
+    ring.style.borderColor  = 'rgba(201,169,110,0.9)';
   });
   el.addEventListener('mouseleave', () => {
-    ring.style.width       = '36px';
-    ring.style.height      = '36px';
-    ring.style.borderColor = 'rgba(201,169,110,0.4)';
+    cursor.style.width      = '6px';
+    cursor.style.height     = '6px';
+    cursor.style.background = '#e8d5a3';
+    ring.style.width        = '28px';
+    ring.style.height       = '28px';
+    ring.style.borderColor  = 'rgba(201,169,110,0.55)';
   });
 });
 

@@ -41,30 +41,30 @@ body {
 
 /* ─── CUSTOM CURSOR ─── */
 #cursor {
-  width: 10px;
-  height: 10px;
-  background: var(--gold);
+  width: 6px;
+  height: 6px;
+  background: #e8d5a3;
   border-radius: 50%;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.15s, opacity 0.15s;
-  mix-blend-mode: screen;
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  box-shadow: 0 0 6px 2px rgba(220, 190, 100, 0.6), 0 0 14px 4px rgba(200, 165, 80, 0.25);
 }
 
 #cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(201, 169, 110, 0.4);
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(201, 169, 110, 0.55);
   border-radius: 50%;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
   z-index: 9998;
-  transition: width 0.3s, height 0.3s, border-color 0.3s;
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
 }
 
 /* ─── GRAIN OVERLAY ─── */
@@ -522,10 +522,12 @@ section {
 }
 
 .project-card {
+  text-decoration: none;
+  color: inherit;
+  display: grid;
   position: relative;
   background: var(--bg2);
   border-left: 3px solid transparent;
-  display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 2rem;
   padding: 2.5rem;
